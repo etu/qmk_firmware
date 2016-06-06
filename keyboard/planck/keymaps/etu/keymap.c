@@ -69,7 +69,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  */
 [_DVORAK] = {
   {KC_TAB,  DV_QUOT, DV_COMM, DV_DOT,  DV_P,    DV_Y,    DV_F,    DV_G,    DV_C,    DV_R,    DV_L,    KC_BSPC},
-  {KC_ESC,  DV_A,    DV_O,    DV_E,    DV_U,    DV_I,    DV_D,    DV_H,    DV_T,    DV_N,    DV_S,    DV_SLSH},
+  {KC_LCTL, DV_A,    DV_O,    DV_E,    DV_U,    DV_I,    DV_D,    DV_H,    DV_T,    DV_N,    DV_S,    DV_SLSH},
   {KC_LSFT, DV_SCLN, DV_Q,    DV_J,    DV_K,    DV_X,    DV_B,    DV_M,    DV_W,    DV_V,    DV_Z,    KC_ENT },
   {M(M_BL), KC_LCTL, KC_LALT, KC_LGUI, LOWER,   KC_SPC,  KC_SPC,  RAISE,   KC_LEFT, KC_DOWN, KC_UP,   KC_RGHT}
 },
@@ -211,12 +211,12 @@ const macro_t *action_get_macro(keyrecord_t *record, uint8_t id, uint8_t opt)
           break;
         case M_BL:
           if (record->event.pressed) {
-            register_code(KC_RSFT);
+            register_code(KC_ESC);
             #ifdef BACKLIGHT_ENABLE
               backlight_step();
             #endif
           } else {
-            unregister_code(KC_RSFT);
+            unregister_code(KC_ESC);
           }
         break;
         case 12:
